@@ -1,4 +1,4 @@
 'use strict';
 
 
-angular.module("", []);
+angular.module("AdsPublisher", ['ngResource', 'ngRoute']);
