@@ -11,7 +11,7 @@ var util = require('util'),
     url = require('url'),
     events = require('events');
 
-var DEFAULT_PORT = 1234;
+var DEFAULT_PORT = 1111;
 
 function main(argv) {
     new HttpServer({
@@ -119,17 +119,17 @@ StaticServlet.prototype.handleRequest = function (req, res) {
 }
 
 StaticServlet.prototype.findAndSendTarget = function(req, path, res, self) {
-util.puts(path);
-	fs.stat(path, function (err, stat) {
+    util.puts(path);
+    fs.stat(path, function (err, stat) {
         if (err && path.indexOf('app/') >= 0)
             return self.sendMissing_(req, res, path);
         else if (err) {
             if (path.indexOf('.json') == -1) {
                 return self.findAndSendTarget(req, path + ".json", res, self);
             } else if (!fs.fileExistsSync(path + ".json") && path.indexOf('/data/') != -1) {
-					self.sendMissing_(req, res, path);
+                self.sendMissing_(req, res, path);
             }
-			
+
             return self.sendDefault_(req, res);
         }
 
@@ -146,7 +146,7 @@ util.puts(path);
             }
             return self.sendAllJsonFilesAppended_(req, res, path);
         }
-		if (!fs.fileExistsSync(path)) {
+        if (!fs.fileExistsSync(path)) {
             return self.sendMissing_(req, path, res);
         }
         return self.sendFile_(req, res, path);
@@ -187,7 +187,7 @@ StaticServlet.prototype.sendMissing_ = function (req, res, path) {
     res.write('<title>404 Not Found</title>\n');
     res.write('<h1>Not Found</h1>');
     res.write(
-        '<p>The requested URL ' +
+            '<p>The requested URL ' +
             escapeHtml(path) +
             ' was not found on this server.</p>'
     );
@@ -204,7 +204,7 @@ StaticServlet.prototype.sendForbidden_ = function (req, res, path) {
     res.write('<title>403 Forbidden</title>\n');
     res.write('<h1>Forbidden</h1>');
     res.write(
-        '<p>You do not have permission to access ' +
+            '<p>You do not have permission to access ' +
             escapeHtml(path) + ' on this server.</p>'
     );
     res.end();
@@ -220,7 +220,7 @@ StaticServlet.prototype.sendRedirect_ = function (req, res, redirectUrl) {
     res.write('<title>301 Moved Permanently</title>\n');
     res.write('<h1>Moved Permanently</h1>');
     res.write(
-        '<p>The document has moved <a href="' +
+            '<p>The document has moved <a href="' +
             redirectUrl +
             '">here</a>.</p>'
     );
