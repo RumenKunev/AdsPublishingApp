@@ -3,7 +3,46 @@
         <div class="col-md-9">
             <ul>
                 <li ng-repeat="ad in allAds.ads">
-                    {{ad}}
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h4>{{ad.title}}</h4>
+                            </div>
+                            <div class="col-md-4 text-right">
+                                {{ad.date | date:'d-MMM-yyyy'}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img class="adImage" src="" alt="Ad Image" ng-src="{{ad.imageDataUrl}}">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="well">
+                                    {{ad.text}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h5>Name</h5>
+                                    </div>
+                                    <div class="col-md-10 well well-sm">
+                                        <h5>{{ad.ownerName}}</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Email:</h5>
+                                    </div>
+                                    <div class="col-md-10 well well-sm">
+                                        <h5>{{ad.ownerEmail}}</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Tel.</h5>
+                                    </div>
+                                    <div class="col-md-10 well well-sm">
+                                        <h5>{{ad.ownerPhone}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>

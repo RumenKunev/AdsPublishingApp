@@ -1,8 +1,15 @@
-.image{
-    width:60px;
+#logo{
+    font-size: 26px;
 }
 
 #logo:after{
     content: url('../img/image.png');
+}
 
+ul {
+    list-style-type: none;
+}
+
+.adImage{
+    width:100%;
 }
