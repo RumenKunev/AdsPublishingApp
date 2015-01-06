@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module("AdsPublisher")
-    .controller("RegisterController", ['$scope', 'getData', function RegisterController ($scope, getData){
+    .controller("RegisterController", ['$scope', 'getData', 'userData', function RegisterController ($scope, getData, userData){
         $scope.allTowns = getData.getAllTowns();
 
         $scope.register = function(user){
-            //TODO implement register
-            console.log(user);
+            userData.registerUser(user)
         }
     }]
 );
