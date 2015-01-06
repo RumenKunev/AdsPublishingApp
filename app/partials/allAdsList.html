@@ -50,13 +50,23 @@
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><strong>Categories</strong></div>
                 <div class="panel-body">
-                    Panel content
+                    <a href="#">All</a>
+                    <ul>
+                        <li ng-repeat="category in allCategories | limitTo: 4">
+                            <a href="">{{category.name}}</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><strong>Towns</strong></div>
                 <div class="panel-body">
-                    {{allTowns}}
+                    <a href="#">All</a>
+                    <ul>
+                        <li ng-repeat="town in allTowns  | limitTo: 4">
+                            <a href="" ng-click="getTownId()">{{town.name}}</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
