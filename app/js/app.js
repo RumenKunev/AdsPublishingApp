@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module("AdsPublisher", ['ngResource', 'ngRoute'])
+angular.module("AdsPublisher", ['ngResource', 'ngRoute', 'ngCookies'])
     .config(function($routeProvider){
         $routeProvider
             .when('/',{

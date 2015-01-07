@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module("AdsPublisher")
-    .factory('getData', function($resource){
+    .factory('getAdsData', function($resource){
         var resource = $resource('http://softuni-ads.azurewebsites.net/api:id', {id: '@id'});
 
         return {

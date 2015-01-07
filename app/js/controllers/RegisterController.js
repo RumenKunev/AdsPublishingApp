@@ -1,11 +1,15 @@
 'use strict';
 
 angular.module("AdsPublisher")
-    .controller("RegisterController", ['$scope', 'getData', 'userData', function RegisterController ($scope, getData, userData){
-        $scope.allTowns = getData.getAllTowns();
+    .controller("RegisterController", ['$scope', 'getAdsData', 'userData', function RegisterController ($scope, getAdsData, userData){
+        $scope.allTowns = getAdsData.getAllTowns();
 
-        $scope.register = function(user){
+        $scope.register = function register (user){
             userData.registerUser(user)
+        };
+
+        $scope.login = function login (user){
+            userData.loginUser(user)
         }
     }]
 );

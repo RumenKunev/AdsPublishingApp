@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module("AdsPublisher")
-    .controller("GetAllAdsController", ['$scope', 'getData', function GetAllAdsController ($scope,getData){
+    .controller("GetAllAdsController", ['$scope', 'getAdsData', function GetAllAdsController ($scope,getAdsData){
 
-        $scope.allAds = getData.getAllAds();
-        $scope.allTowns = getData.getAllTowns();
-        $scope.allCategories = getData.getAllCategories();
+        $scope.allAds = getAdsData.getAllAds();
+        $scope.allTowns = getAdsData.getAllTowns();
+        $scope.allCategories = getAdsData.getAllCategories();
 
     }]
 );
