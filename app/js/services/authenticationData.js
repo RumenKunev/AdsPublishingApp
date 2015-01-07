@@ -21,15 +21,27 @@ angular.module("AdsPublisher")
             var headers = {};
             var userToken = getAuthenticationToken();
 
-            headers.Authorization = 'Bearer ' + userToken.access_token;
+            if(userToken){
+                headers.Authorization = 'Bearer ' + userToken.access_token;
+            }
 
             return headers;
+        }
+
+        function isAdmin(){
+            var isAdmin = false;
+            var userToken = getAuthenticationToken();
+            if(userToken){
+                isAdmin = userToken.isAdmin;
+            }
+            return isAdmin;
         }
 
         return {
             saveAuthenticationToken : saveAuthenticationToken,
             getAuthenticationToken : getAuthenticationToken,
             removeAuthenticationToken: removeAuthenticationToken,
-            getHeaders: getHeaders
+            getHeaders: getHeaders,
+            isAdmin: isAdmin
         }
 });

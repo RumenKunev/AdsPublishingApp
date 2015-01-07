@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module("AdsPublisher")
-    .controller("LoginController", ['$scope', function LoginController ($scope){
+    .controller("LoginController", ['$scope', 'userData', function LoginController ($scope, userData){
 
+        $scope.login = function login (user){
+            userData.loginUser(user)
+        }
     }]
 );
