@@ -4,15 +4,15 @@
         <li><a href="#/register">Register</a></li>
     </ul>
 </div>
-<div class="navbar-collapse collapse navbar-responsive-collapse" ng-if="isLogged">
+<div class="navbar-collapse collapse navbar-responsive-collapse" ng-if="isLogged" ng-controller="LogoutController">
     <ul class="nav navbar-nav">
         <li class="active"><a href="#/">My Ads</a></li>
         <li class="active"><a href="#/">Publish New Ad</a></li>
         <li class="active"><a href="#/">Edit Profile</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="">TODO NAme</a></li>
-        <li><a href="#/showAllAds">Logout</a></li>
+        <li><a href="">Welcome, TODO</a></li>
+        <li><a href="" ng-click="logout()">Logout</a></li>
     </ul>
 </div>
 <div class="jumbotron">
@@ -70,7 +70,7 @@
                     <a href="#">All</a>
                     <ul>
                         <li ng-repeat="category in allCategories | limitTo: 4">
-                            <a href="">{{category.name}}</a>
+                            <a href="" ng-clicked="categoryClicked(category)">{{category.name}}</a>
                         </li>
                     </ul>
                 </div>

@@ -6,6 +6,10 @@ angular.module("AdsPublisher")
         $scope.allTowns = adsData.getAllTowns();
         $scope.allCategories = adsData.getAllCategories();
 
+
+
         $scope.isLogged = authenticationData.isLogged();
+        //$scope.username = authenticationData.getAuthenticationToken().username;
+
     }]
 );
