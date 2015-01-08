@@ -5,7 +5,8 @@ angular.module("AdsPublisher", ['ngResource', 'ngRoute', 'ngCookies'])
     .config(function($routeProvider){
         $routeProvider
             .when('/',{
-                templateUrl: '/partials/allAdsList.html'
+                templateUrl: '/partials/allAdsList.html',
+                controller: 'AdsController'
             })
             .when('/login',{
                 templateUrl: '/partials/login.html'

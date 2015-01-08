@@ -4,22 +4,25 @@ angular.module("AdsPublisher")
     .factory('userData', function($resource, $location, baseUrl, authenticationData){
 
         function registerUser (user) {
-            return $resource(baseUrl + '/user/register')
-                .save(user)
+            var resource = $resource(baseUrl + '/user/register')
+                .save(user);
+            resource
                 .$promise
                 .then(function (responce) {
                     authenticationData.saveAuthenticationToken(responce);
                 });
+            return resource;
         }
 
         function loginUser (user) {
-            return $resource(baseUrl + '/user/login')
-                .save(user)
+            var resource = $resource(baseUrl + '/user/login')
+                .save(user);
+            resource
                 .$promise
                 .then(function (responce) {
                     authenticationData.saveAuthenticationToken(responce);
-                })
-                .then($location.path('/'))
+                });
+            return resource;
         }
 
         function logoutUser () {

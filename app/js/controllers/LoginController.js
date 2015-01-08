@@ -1,10 +1,14 @@
 'use strict';
 
 angular.module("AdsPublisher")
-    .controller("LoginController", ['$scope', 'userData', function LoginController ($scope, userData){
+    .controller("LoginController", ['$scope', '$location', 'userData', function LoginController ($scope, $location, userData){
 
         $scope.login = function login (user) {
             userData.loginUser(user)
+                .$promise
+                .then(function(responce){
+                    $location.path('/');
+                });
         }
     }]
 );
