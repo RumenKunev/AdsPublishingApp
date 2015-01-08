@@ -1,6 +1,7 @@
 'use strict';
 
-app.factory('notifyService',
+angular.module("AdsPublisher")
+    .factory('notifyService',
     function () {
         return {
             showInfo: function(msg) {

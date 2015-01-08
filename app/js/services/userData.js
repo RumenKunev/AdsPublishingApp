@@ -26,7 +26,7 @@ angular.module("AdsPublisher")
         }
 
         function logoutUser () {
-            authenticationData.removeAuthenticationToken();
+             authenticationData.removeAuthenticationToken();
         }
 
         return {
