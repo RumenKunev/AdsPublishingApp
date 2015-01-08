@@ -29,12 +29,13 @@ angular.module("AdsPublisher")
         }
 
         function isAdmin(){
-            var isAdmin = false;
             var userToken = getAuthenticationToken();
-            if(userToken){
-                isAdmin = userToken.isAdmin;
-            }
-            return isAdmin;
+
+            return userToken.isAdmin;
+        }
+
+        function isLogged(){
+            return !!getAuthenticationToken();
         }
 
         return {
@@ -42,6 +43,7 @@ angular.module("AdsPublisher")
             getAuthenticationToken : getAuthenticationToken,
             removeAuthenticationToken: removeAuthenticationToken,
             getHeaders: getHeaders,
-            isAdmin: isAdmin
+            isAdmin: isAdmin,
+            isLogged: isLogged
         }
 });

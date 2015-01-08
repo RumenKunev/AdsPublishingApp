@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module("AdsPublisher")
-    .factory('userData', function($resource, baseUrl, authenticationData){
+    .factory('userData', function($resource, $location, baseUrl, authenticationData){
 
         function registerUser (user) {
             return $resource(baseUrl + '/user/register')
@@ -18,7 +18,8 @@ angular.module("AdsPublisher")
                 .$promise
                 .then(function (responce) {
                     authenticationData.saveAuthenticationToken(responce);
-                });
+                })
+                .then($location.path('/'))
         }
 
         function logoutUser () {
@@ -27,7 +28,7 @@ angular.module("AdsPublisher")
 
         return {
             registerUser: registerUser,
-            loginUser: loginUser
-
+            loginUser: loginUser,
+            logoutUser: logoutUser
         }
     });
