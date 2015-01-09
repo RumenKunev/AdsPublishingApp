@@ -15,7 +15,8 @@ angular.module("AdsPublisher", ['ngResource', 'ngRoute', 'ngCookies'])
                 templateUrl: '/partials/register.html'
             })
             .when('/logout',{
-                templateUrl: '/partials/allAdsList.html'
+                templateUrl: '/partials/allAdsList.html',
+                controller: 'LogoutController'
             })
             .otherwise({redirectTo: '/'})
     })

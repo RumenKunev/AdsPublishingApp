@@ -1,20 +1,5 @@
-<div class="navbar-collapse collapse navbar-responsive-collapse" id="rightNavPart" ng-if="!isLogged">
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="#/login">Login</a></li>
-        <li><a href="#/register">Register</a></li>
-    </ul>
-</div>
-<div class="navbar-collapse collapse navbar-responsive-collapse" ng-if="isLogged" ng-controller="LogoutController">
-    <ul class="nav navbar-nav">
-        <li class="active"><a href="#/">My Ads</a></li>
-        <li class="active"><a href="#/">Publish New Ad</a></li>
-        <li class="active"><a href="#/">Edit Profile</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="">Welcome, {{displayUsername()}}</a></li>
-        <li><a href="#/logout" ng-click="logout()">Logout</a></li>
-    </ul>
-</div>
+<div ng-include="'notLoggedNavbar.html'" ng-if="!isLogged"></div>
+<div ng-include="'loggedNavbar.html'" ng-if="isLogged"></div>
 <div class="jumbotron">
     <div class="row">
         <div class="col-md-9">
