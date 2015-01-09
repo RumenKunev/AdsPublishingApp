@@ -7,5 +7,6 @@ angular.module("AdsPublisher")
         $scope.logout = function logout () {
             userData.logoutUser();
         }
+
     }]
 );

@@ -21,6 +21,10 @@ ul {
 .adImage{
     width:100%;
 }
+
+#category, #town{
+    width: 100%;
+}
 footer {
     position: fixed;
     height: 40px;

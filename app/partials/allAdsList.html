@@ -1,5 +1,5 @@
-<div ng-include="'notLoggedNavbar.html'" ng-if="!isLogged"></div>
-<div ng-include="'loggedNavbar.html'" ng-if="isLogged"></div>
+<div ng-include="'partials/notLoggedNavbar.html'"></div>
+<div ng-include="'partials/loggedNavbar.html'"></div>
 <div class="jumbotron">
     <div class="row">
         <div class="col-md-9">
@@ -53,7 +53,7 @@
                 <div class="panel-heading text-center"><strong>Categories</strong></div>
                 <div class="panel-body">
                     <a href="#">All</a>
-                    <select>
+                    <select  id="category">
                         <option ng-repeat="category in allCategories" ng-model="selectedCategory">{{category.name}}</option>
                     </select>
                 </div>
