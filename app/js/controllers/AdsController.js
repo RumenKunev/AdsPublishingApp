@@ -9,7 +9,13 @@ angular.module("AdsPublisher")
 
 
         $scope.isLogged = authenticationData.isLogged();
-        //$scope.username = authenticationData.getAuthenticationToken().username;
+        $scope.displayUsername = function displayUsername(){
+            var username = '';
+            if($scope.isLogged){
+                username = authenticationData.getAuthenticationToken().username;
+            }
+            return username;
+        }
 
     }]
 );

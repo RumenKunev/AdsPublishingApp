@@ -11,7 +11,7 @@
         <li class="active"><a href="#/">Edit Profile</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="">Welcome, TODO</a></li>
+        <li><a href="">Welcome, {{displayUsername()}}</a></li>
         <li><a href="#/logout" ng-click="logout()">Logout</a></li>
     </ul>
 </div>
@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-md-9">
             <ul>
-                <li ng-repeat="ad in allAds.ads">
+                <li ng-repeat="ad in allAds.ads | filter: {categoryId : selectedCategory.id}">
                     <div class="well">
                         <div class="row">
                             <div class="col-md-8">
@@ -68,11 +68,9 @@
                 <div class="panel-heading text-center"><strong>Categories</strong></div>
                 <div class="panel-body">
                     <a href="#">All</a>
-                    <ul>
-                        <li ng-repeat="category in allCategories | limitTo: 4">
-                            <a href="" ng-clicked="categoryClicked(category)">{{category.name}}</a>
-                        </li>
-                    </ul>
+                    <select>
+                        <option ng-repeat="category in allCategories" ng-model="selectedCategory">{{category.name}}</option>
+                    </select>
                 </div>
             </div>
             <div class="panel panel-default">
