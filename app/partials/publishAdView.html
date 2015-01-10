@@ -1,0 +1,44 @@
+<div ng-include="'partials/notLoggedNavbar.html'" ng-if="!isLogged"></div>
+<div ng-include="'partials/loggedNavbar.html'" ng-if="isLogged"></div>
+<form class="form-horizontal" ng-controller="RegisterController">
+    <fieldset class="col-lg-10 col-lg-offset-1">
+        <legend>Publish New Ad</legend>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label for="title" class="col-lg-2 control-label">Title:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="title" placeholder="Title" ng-model="publishForm.username"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="text" class="col-lg-2 control-label">Text:</label>
+                    <div class="col-lg-10">
+                        <textarea class="form-control" id="text" placeholder="Text" ng-model="publishForm.text"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img alt="No data to display..." ng-src="{{publishForm.image}}"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label for="image" class="col-lg-2 control-label">Image:</label>
+                    <div class="col-lg-10">
+                        <input type="file" class="form-control" id="image" placeholder="Browse for file" ng-model="publishForm.image"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="col-lg-10 col-lg-offset-1">
+        <div class="col-md-6">
+            <div class="form-group">
+                <button class="btn btn-primary"  ng-click="register(user)">Publish</button>
+                <a href="#/user/ads/publish" class="btn btn-default">Cancel</a>
+            </div>
+        </div>
+    </fieldset>
+</form>

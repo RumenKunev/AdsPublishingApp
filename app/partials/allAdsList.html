@@ -1,5 +1,5 @@
-<div ng-include="'partials/notLoggedNavbar.html'"></div>
-<div ng-include="'partials/loggedNavbar.html'"></div>
+<div ng-include="'partials/notLoggedNavbar.html'" ng-if="!isLogged"></div>
+<div ng-include="'partials/loggedNavbar.html'" ng-if="isLogged"></div>
 <div class="jumbotron">
     <div class="row">
         <div class="col-md-9">

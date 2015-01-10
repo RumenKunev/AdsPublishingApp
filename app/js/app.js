@@ -14,7 +14,7 @@ angular.module("AdsPublisher", ['ngResource', 'ngRoute', 'ngCookies'])
             .when('/register',{
                 templateUrl: '/partials/register.html'
             })
-            .when('/publish',{
+            .when('/user/ads/publish',{
                 templateUrl: '/partials/publishAdView.html'
             })
             .otherwise({redirectTo: '/'})
