@@ -9,7 +9,7 @@ angular.module("AdsPublisher")
                     text: msg,
                     type: 'info',
                     layout: 'topCenter',
-                    timeout: 1000}
+                    timeout:3000}
                 );
             },
             showError: function(msg, serverError) {

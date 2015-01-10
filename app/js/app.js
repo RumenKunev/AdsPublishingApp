@@ -18,6 +18,10 @@ angular.module("AdsPublisher", ['ngResource', 'ngRoute', 'ngCookies'])
                 templateUrl: '/partials/publishAdView.html',
                 controller: 'PublishAdController'
             })
+            .when('/user/ads',{
+                templateUrl: '/partials/userAdsList.html',
+                controller: 'UserAdsListController'
+            })
             .otherwise({redirectTo: '/'})
     })
     .constant('baseUrl', 'http://softuni-ads.azurewebsites.net/api');

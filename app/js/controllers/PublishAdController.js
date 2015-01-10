@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module("AdsPublisher")
-    .controller("PublishAdController", ['$scope', 'authenticationData', 'adsData', 'userAdsData' , 'notifyService',
-        function PublishAdController ($scope, authenticationData, adsData, userAdsData, notifyService){
+    .controller("PublishAdController", ['$scope', '$location', 'authenticationData', 'adsData', 'userAdsData' , 'notifyService',
+        function PublishAdController ($scope, $location, authenticationData, adsData, userAdsData, notifyService){
 
         $scope.isLogged = authenticationData.isLogged();
 
