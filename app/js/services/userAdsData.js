@@ -1,14 +1,13 @@
 'use strict';
 
 angular.module("AdsPublisher")
-    .factory('adsData', function($resource, baseUrl){
+    .factory('userAdsData', function($resource, authenticationData, baseUrl){
+
+        var headers = authenticationData.getHeaders();
+
         var resource = $resource(baseUrl + ':url/:adsId', {url: '@url', adsId: '@adsId' }, {
             update: { method: 'PUT'}
         });
-
-        function getAllAds(){
-            return resource.get({url: '/ads'})
-        }
 
         function getUserAds(){
             return resource.get({url: 'user/ads'})
@@ -30,22 +29,11 @@ angular.module("AdsPublisher")
             return resource.delete({url: 'user/ads', adsId:adsId})
         }
 
-        function getAllTowns(){
-            return resource.query({url: '/towns'})
-        }
-
-        function getAllCategories(){
-            return resource.query({url: '/categories'})
-        }
-
         return {
-            getAllAds: getAllAds,
             getUserAds: getUserAds,
             getUserAdById: getUserAdById,
             createNewAd:createNewAd,
             editAd: editAd,
-            deleteAdById: deleteAdById,
-            getAllTowns: getAllTowns ,
-            getAllCategories: getAllCategories
+            deleteAdById: deleteAdById
         }
     });

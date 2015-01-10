@@ -13,5 +13,8 @@ angular.module("AdsPublisher")
             return username;
         }
 
+        $scope.allTowns = adsData.getAllTowns();
+        $scope.allCategories = adsData.getAllCategories();
+
     }]
 );
