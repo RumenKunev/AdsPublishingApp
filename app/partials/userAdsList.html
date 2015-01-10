@@ -1,3 +1,66 @@
-<div>
-    Emlkjdkcaldc;lnadc
+<div ng-include="'partials/notLoggedNavbar.html'" ng-if="!isLogged"></div>
+<div ng-include="'partials/loggedNavbar.html'" ng-if="isLogged"></div>
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-9">
+            <ul>
+                <li ng-repeat="ad in allUserAds.ads">
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h4>{{ad.title}}</h4>
+                            </div>
+                            <div class="col-md-4 text-right">
+                                {{ad.date | date:'d-MMM-yyyy'}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img class="adImage" src="" alt="Ad Image" ng-src="{{ad.imageDataUrl}}">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="well">
+                                    {{ad.text}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h5>Category:</h5>
+                                    </div>
+                                    <div class="col-md-10 well well-sm">
+                                        <h5>{{ad.categoryName}}</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Town:</h5>
+                                    </div>
+                                    <div class="col-md-10 well well-sm">
+                                        <h5>{{ad.townName}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><strong>My Ads</strong></div>
+                <div class="panel-body">
+                    <select  id="category">
+                        <option selected="selected" value="null">All</option>
+                        <option ng-repeat="category in allCategories" ng-model="selectedCategory">{{category.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><strong>Status</strong></div>
+                <div class="panel-body">
+                   ToDoStatus
+                </div>
+                <div class="panel-body">
+                    <button class="btn btn-primary" ng-click="">Deactivate</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
