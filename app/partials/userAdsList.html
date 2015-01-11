@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-9">
             <ul>
-                <li ng-repeat="ad in allUserAds.ads">
+                <li ng-repeat="ad in allUserAds.ads | filter: filterByStatus">
                     <div class="well">
                         <div class="row">
                             <div class="col-md-8">
@@ -38,6 +38,15 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-2"><strong>Status:</strong></div>
+                                <div class="col-md-10"><em>{{ad.status}}</em></div>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-primary btn-sm pull-right" ng-click="">Deactivate</button>
+                            </div>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -46,19 +55,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><strong>My Ads</strong></div>
                 <div class="panel-body">
-                    <select  id="category">
-                        <option selected="selected" value="null">All</option>
-                        <option ng-repeat="category in allCategories" ng-model="selectedCategory">{{category.name}}</option>
+                    <select  id="category" ng-model="filterByStatus">
+                        <option selected="selected" value="">All</option>
+                        <option value="Published">Published</option>
+                        <option value="WaitingApproval">WaitingApproval</option>
+                        <option value="Inactive">Inactive</option>
+                        <option value="Rejected">Rejected</option>
                     </select>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading text-center"><strong>Status</strong></div>
-                <div class="panel-body">
-                   ToDoStatus
-                </div>
-                <div class="panel-body">
-                    <button class="btn btn-primary" ng-click="">Deactivate</button>
                 </div>
             </div>
         </div>

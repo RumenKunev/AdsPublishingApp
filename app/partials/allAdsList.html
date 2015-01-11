@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-9">
             <ul>
-                <li ng-repeat="ad in allAds.ads | filter: {categoryId : selectedCategory.id}">
+                <li ng-repeat="ad in allAds.ads | filter: {categoryId : selectedCategory} | filter: {townId : selectedTown}">
                     <div class="well">
                         <div class="row">
                             <div class="col-md-8">
@@ -52,21 +52,19 @@
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><strong>Categories</strong></div>
                 <div class="panel-body">
-                    <a href="#">All</a>
-                    <select  id="category">
-                        <option ng-repeat="category in allCategories" ng-model="selectedCategory">{{category.name}}</option>
+                    <select id="category" ng-model="selectedCategory">
+                        <option selected="selected" value="">All</option>
+                        <option ng-repeat="category in allCategories" value="{{category.id}}">{{category.name}}</option>
                     </select>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><strong>Towns</strong></div>
                 <div class="panel-body">
-                    <a href="#">All</a>
-                    <ul>
-                        <li ng-repeat="town in allTowns  | limitTo: 4">
-                            <a href="">{{town.name}}</a>
-                        </li>
-                    </ul>
+                    <select id="town" ng-model="selectedTown">
+                        <option selected="selected" value="">All</option>
+                        <option ng-repeat="town in allTowns" value="{{town.id}}">{{town.name}}</option>
+                    </select>
                 </div>
             </div>
         </div>
