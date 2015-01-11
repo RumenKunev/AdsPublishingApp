@@ -26,7 +26,7 @@ angular.module("AdsPublisher")
                         $location.path("/user/ads");
                     });
             } else {
-                notifyService.showError("Publishing ad failed!", serverError);
+                notifyService.showError("Publishing ad failed!");
             }
         };
     }]

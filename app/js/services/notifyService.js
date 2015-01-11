@@ -7,7 +7,7 @@ angular.module("AdsPublisher")
             showInfo: function(msg) {
                 noty({
                     text: msg,
-                    type: 'info',
+                    type: 'success',
                     layout: 'topCenter',
                     timeout:3000}
                 );

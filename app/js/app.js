@@ -22,6 +22,11 @@ angular.module("AdsPublisher", ['ngResource', 'ngRoute', 'ngCookies'])
                 templateUrl: '/partials/userAdsList.html',
                 controller: 'UserAdsListController'
             })
+            .when('/user/ads/delete',{
+                templateUrl: '/partials/deleteAdView.html',
+                controller: 'deleteAdController'
+            })
+
             .otherwise({redirectTo: '/'})
     })
     .constant('baseUrl', 'http://softuni-ads.azurewebsites.net/api');
