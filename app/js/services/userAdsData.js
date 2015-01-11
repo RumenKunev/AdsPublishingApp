@@ -5,7 +5,8 @@ angular.module("AdsPublisher")
 
         var headers = authenticationData.getHeaders();
 
-        var userAdsData = $resource(baseUrl + '/user/ads' + ':activate/:adsId', {activate: '@activate', adsId: '@adsId' }, {
+        var userAdsData = $resource(baseUrl + '/user/ads' + ':activate/:adsId', {activate: '@activate', adsId: '@adsId' },
+            {
             'getUserAds': {method: 'GET', isArray: false, headers: headers},
             'publishUserAd': {method: 'POST', isArray: false, headers: headers},
             'deactivateUserAd': {

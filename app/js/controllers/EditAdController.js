@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module("AdsPublisher")
-    .controller("PublishAdController", ['$scope', '$location', '$routeParams', 'authenticationData', 'adsData', 'userAdsData' , 'notifyService',
-        function PublishAdController ($scope, $location, $routeParams, authenticationData, adsData, userAdsData, notifyService){
+    .controller("EditAdController", ['$scope', '$location', '$routeParams', 'authenticationData', 'adsData', 'userAdsData' , 'notifyService',
+        function EditAdController ($scope, $location, $routeParams, authenticationData, adsData, userAdsData, notifyService){
 
             $scope.isLogged = authenticationData.isLogged();
 
@@ -18,7 +18,7 @@ angular.module("AdsPublisher")
             $scope.allCategories = adsData.getAllCategories();
 
             var selectedId = $routeParams.id;
-            $scope.publishForm = userAdsData.getUserAd(selectedId);
+            $scope.ad = userAdsData.getUserAd(selectedId);
 
             $scope.editAd = function (publishForm, editAdForm) {
                 if (editAdForm.$valid) {
