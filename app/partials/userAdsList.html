@@ -46,9 +46,9 @@
                             <div class="col-md-6">
                                 <button class="btn btn-primary btn-sm pull-right" ng-hide="ad.status == 'Inactive' "ng-click="deactivate(ad.id)">Deactivate</button>
                                 <div ng-show="ad.status == 'Inactive'">
-                                    <a href="#/user/ads/delete" class="btn btn-default btn-sm pull-right">Delete</a>
+                                    <button class="btn btn-default btn-sm pull-right" ng-click="delete(ad.id)">Delete</button>
                                     <button class="btn btn-primary btn-sm pull-right" ng-click="publishAgain(ad.id)">Publish Again</button>
-                                    <a href="#/user/ads/edit" class="btn btn-primary btn-sm pull-right">Edit</a>
+                                    <button class="btn btn-primary btn-sm pull-right" ng-click="edit(ad.id)">Edit</button>
                                 </div>
                             </div>
                         </div>

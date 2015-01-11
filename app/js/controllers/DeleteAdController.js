@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module("AdsPublisher")
-    .controller('DeleteAdController', ['$scope', '$routeParams', '$location', 'authenticationData', 'adsData', 'userAdsData',
+    .controller('DeleteAdController', ['$scope', '$routeParams', '$location', 'authenticationData', 'userAdsData',
     'notifyService', 'userData',
-    function DeleteAdController($scope, $routeParams, $location, authenticationData, adsData, userAdsData, notifyService, userData) {
+    function DeleteAdController($scope, $routeParams, $location, authenticationData, userAdsData, notifyService, userData) {
         $scope.isLogged = authenticationData.isLogged();
 
         $scope.displayUsername = function displayUsername(){
