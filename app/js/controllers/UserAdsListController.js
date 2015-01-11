@@ -33,12 +33,4 @@ angular.module("AdsPublisher")
                         $route.reload();
                     });
             };
-//
-            $scope.delete = function (adsId) {
-                $location.path("/user/ads/delete/" + adsId);
-            };
-
-//            $scope.edit = function (selectedId) {
-//                $location.path("/user/ads/edit/" + selectedId);
-//            };
         }]);

@@ -24,7 +24,11 @@ angular.module("AdsPublisher", ['ngResource', 'ngRoute', 'ngCookies'])
             })
             .when('/user/ads/delete',{
                 templateUrl: '/partials/deleteAdView.html',
-                controller: 'deleteAdController'
+                controller: 'DeleteAdController'
+            })
+            .when('/user/ads/edit',{
+                templateUrl: '/partials/editAdView.html',
+
             })
 
             .otherwise({redirectTo: '/'})

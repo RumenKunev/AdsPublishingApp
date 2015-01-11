@@ -1,44 +1,29 @@
 'use strict';
 
 angular.module("AdsPublisher")
-    .controller("DeleteAdController", ['$scope', '$location', '$route', 'authenticationData', 'adsData', 'userAdsData' , 'notifyService',
-        function UserAdsListController ($scope, $location, $route, authenticationData, adsData, userAdsData, notifyService){
+    .controller('DeleteAdController', ['$scope', '$routeParams', '$location', 'authenticationData', 'adsData', 'userAdsData',
+    'notifyService', 'userData',
+    function DeleteAdController($scope, $routeParams, $location, authenticationData, adsData, userAdsData, notifyService, userData) {
+        $scope.isLogged = authenticationData.isLogged();
 
-            $scope.isLogged = authenticationData.isLogged();
+        $scope.displayUsername = function displayUsername(){
+            var username = {};
+            if($scope.isLogged){
+                username = authenticationData.getAuthenticationToken().username;
+            }
+            return username;
+        };
 
-            $scope.displayUsername = function displayUsername(){
-                var username = {};
-                if($scope.isLogged){
-                    username = authenticationData.getAuthenticationToken().username;
-                }
-                return username;
-            };
+        var selectedId = $routeParams.id;
+        $scope.ad = userAdsData.getUserAd(selectedId);
 
-            $scope.allUserAds = userAdsData.getUserAds();
-
-            $scope.deactivate = function (adsId) {
-                userAdsData.deactivateUserAd(adsId)
-                    .$promise
-                    .then(function (result) {
-                        notifyService.showInfo('Ad successfully deactivated.');
-                        $route.reload();
-                    });
-            };
-
-            $scope.publishAgain = function (adsId) {
-                userAdsData.publishAgainUserAd(adsId)
-                    .$promise
-                    .then(function (result) {
-                        notifyService.showInfo('Ad submitted. Once approved, it will be published.');
-                        $route.reload();
-                    });
-            };
-//
-            $scope.delete = function (adsId) {
-                $location.path("/user/ads/delete/" + adsId);
-            };
-
-//            $scope.edit = function (selectedId) {
-//                $location.path("/user/ads/edit/" + selectedId);
-//            };
-        }]);
+        $scope.deleteAd = function (adsId) {
+            userAdsData.deleteUserAd(adsId)
+                .$promise
+                .then(function (result) {
+                    notifyService.showInfo('Ad deleted successfully.');
+                    $location.path("/user/ads");
+                });
+        };
+    }
+]);
