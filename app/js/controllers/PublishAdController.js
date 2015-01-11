@@ -22,11 +22,11 @@ angular.module("AdsPublisher")
                 userAdsData.publishUserAd(publishForm)
                     .$promise
                     .then(function (result) {
-                        notifyService.showInfo('Advertisement submitted for approval. Once approved, it will be published.');
+                        notifyService.showInfo('Your ad will be published, once it is approved by an administrator');
                         $location.path("/user/ads");
                     });
             } else {
-                notifyService.showError("Publish ad failed advertisement title and text are required!", serverError);
+                notifyService.showError("Publishing ad failed!", serverError);
             }
         };
     }]
